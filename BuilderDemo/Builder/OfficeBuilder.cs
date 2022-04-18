@@ -46,6 +46,23 @@ namespace BuilderDemo.Builder
             return this;
         }
 
+        internal OfficeBuilder AddRooms(int floorIndex, RoomType type, int count, List<Equipment> equipments = null)
+        {
+            var roomFactory = new RoomFactory();
+            if (_office.Floors[floorIndex].Rooms == null)
+            {
+                _office.Floors[floorIndex].Rooms = new List<Room>();
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                var room = roomFactory.Create(type, equipments);
+                _office.Floors[floorIndex].Rooms.Add(room);
+            }
+
+            return this;
+        }
+
         internal OfficeBuilder AddEquipment(int floorIndex, RoomType type)
         {
             var roomFactory = new RoomFactory();
