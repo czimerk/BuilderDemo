@@ -7,9 +7,9 @@ var office = new Office()
 {
     Entrance = new Entrance(),
     ParkingLot = new ParkingLot(),
-    Stages = new List<Stage>()
+    Floors = new List<Floor>()
     {
-        new Stage()
+        new Floor()
         { 
             Id = 0,
             Rooms = new List<Room>()
@@ -17,7 +17,7 @@ var office = new Office()
                 new Hall()
             }
         },
-        new Stage()
+        new Floor()
         {
             Id = 1,
             Rooms = new List<Room>()
@@ -32,7 +32,7 @@ var office = new Office()
                 new DevRoom()
             }
         },
-        new Stage()
+        new Floor()
         {
             Id = 2,
             Rooms = new List<Room>()
@@ -47,7 +47,7 @@ var office = new Office()
                 new DevRoom()
             }
         },
-        new Stage()
+        new Floor()
         {
             Id = 3,
             Rooms = new List<Room>()
@@ -57,7 +57,7 @@ var office = new Office()
                 new Restroom()
             }
         },
-        new Stage()
+        new Floor()
         {
             Id = 4,
             Rooms = new List<Room>()
