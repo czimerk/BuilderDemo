@@ -1,7 +1,48 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using BuilderDemo.Builder;
 using BuilderDemo.Models;
+using BuilderDemo.Enums;
 
 Console.WriteLine("Hello, World!");
+
+var builder = new OfficeBuilder();
+
+var officeB = builder
+    .WithEntrace()
+    .WithParkingLot()
+    .WithFloors(5)
+    .AddRoom(0, RoomType.Hall)
+    .AddRoom(1, RoomType.Restroom)
+    .AddRoom(1, RoomType.Restroom)
+    .AddRoom(1, RoomType.MeetingRoom)
+    .AddRoom(1, RoomType.MeetingRoom)
+    .AddRoom(1, RoomType.DevRoom)
+    .AddRoom(1, RoomType.DevRoom)
+    .AddRoom(1, RoomType.DevRoom)
+    .AddRoom(1, RoomType.DevRoom)
+    .AddRoom(2, RoomType.Restroom)
+    .AddRoom(2, RoomType.Restroom)
+    .AddRoom(2, RoomType.MeetingRoom)
+    .AddRoom(2, RoomType.MeetingRoom)
+    .AddRoom(2, RoomType.DevRoom)
+    .AddRoom(2, RoomType.DevRoom)
+    .AddRoom(2, RoomType.DevRoom)
+    .AddRoom(2, RoomType.DevRoom)
+    .AddRoom(3, RoomType.Restaurant)
+    .AddRoom(3, RoomType.Restroom)
+    .AddRoom(3, RoomType.Restroom)
+    .AddRoom(4, RoomType.Roof, new List<Equipment>() { new Antenna() })
+    .Build();
+
+var builder2 = new OfficeBuilder();
+builder2.WithEntrace().WithParkingLot().WithFloors(2);
+builder2.AddRoom(0, RoomType.Hall);
+builder2.AddRoom(1, RoomType.Restroom);
+for (int i = 0; i < 6; i++)
+{
+    builder2.AddRoom(1, RoomType.DevRoom);
+}
+var office2 = builder2.Build();
 
 var office = new Office()
 {
@@ -10,10 +51,10 @@ var office = new Office()
     Floors = new List<Floor>()
     {
         new Floor()
-        { 
+        {
             Id = 0,
             Rooms = new List<Room>()
-            { 
+            {
                 new Hall()
             }
         },
@@ -67,7 +108,7 @@ var office = new Office()
                     Equipments = new List<Equipment>()
                     {
                         new Antenna()
-                    } 
+                    }
                 }
             }
         }
